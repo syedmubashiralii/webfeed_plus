@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.7.1
+- Dependency upgrade
+
 ## [0.7.0](https://pub.dartlang.org/packages/webfeed/versions/0.7.0)
 - Null safety migration [#50](https://github.com/witochandra/webfeed/pull/50)
 - Parse duration if not empty [#39](https://github.com/witochandra/webfeed/pull/39)
