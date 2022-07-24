@@ -14,7 +14,9 @@ void main() {
     try {
       RssFeed.parse(xmlString);
       fail('Should throw Argument Error');
-    } on ArgumentError {}
+    } on ArgumentError {
+      print('Argument Error');
+    }
   });
   test('parse RSS.xml', () {
     var xmlString = File('test/xml/RSS.xml').readAsStringSync();
@@ -330,12 +332,13 @@ void main() {
         'go,golang,open source,software,development'.split(','));
     expect(feed.itunes!.owner!.name, 'Changelog Media');
     expect(feed.itunes!.owner!.email, 'editors@changelog.com');
-    expect(
-        Set.from([
-          feed.itunes!.categories![0].category,
-          feed.itunes!.categories![1].category
-        ]),
-        ['Technology', 'Foo']);
+    expect({
+      feed.itunes!.categories![0].category,
+      feed.itunes!.categories![1].category
+    }, [
+      'Technology',
+      'Foo'
+    ]);
     for (var category in feed.itunes!.categories!) {
       switch (category.category) {
         case 'Foo':
@@ -358,7 +361,7 @@ void main() {
     expect(item.itunes!.season, 1);
     expect(item.itunes!.image!.href,
         'https://cdn.changelog.com/uploads/covers/go-time-original.png?v=63725770357');
-    expect(item.itunes!.duration, Duration(minutes: 32, seconds: 30));
+    expect(item.itunes!.duration, const Duration(minutes: 32, seconds: 30));
     expect(item.itunes!.explicit, false);
     expect(item.itunes!.keywords,
         'go,golang,open source,software,development'.split(','));
