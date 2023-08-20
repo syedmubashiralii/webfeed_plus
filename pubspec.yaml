@@ -3,16 +3,16 @@ name: webfeed_plus
 description: webfeed_plus is a dart package for parsing RSS and Atom feeds. Media, DublinCore, iTunes, Syndication namespaces are also supported.
 homepage: https://github.com/OmkarDabade/webfeed_plus
 
-version: 1.0.0
+version: 1.0.1
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
-  xml: ^6.1.0
-  intl: ^0.17.0
+  xml: ^6.4.2
+  intl: ^0.18.1
 
 dev_dependencies:
-  flutter_lints: ^2.0.1
-  test: ^1.21.4
-  http: ^0.13.5
+  flutter_lints: ^2.0.2
+  test: ^1.24.6
+  http: ^1.1.0

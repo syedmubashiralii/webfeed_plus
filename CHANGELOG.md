@@ -1,5 +1,10 @@
 # Changelogs
 
+## 1.0.1
+
+- Dependencies upgrade
+- Dart SDK upgrade, requires SDK >= 3.0.0
+
 ## 1.0.0
 
 - Change in package name to "webfeed_plus" from "webfeed"
