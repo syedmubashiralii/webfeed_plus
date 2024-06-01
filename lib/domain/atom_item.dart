@@ -41,9 +41,10 @@ class AtomItem {
 
   factory AtomItem.parse(XmlElement element) {
     return AtomItem(
-      id: element.findElements('id').firstOrNull?.text,
-      title: element.findElements('title').firstOrNull?.text,
-      updated: parseDateTime(element.findElements('updated').firstOrNull?.text),
+      id: element.findElements('id').firstOrNull?.value,
+      title: element.findElements('title').firstOrNull?.value,
+      updated:
+          parseDateTime(element.findElements('updated').firstOrNull?.value),
       authors: element
           .findElements('author')
           .map((e) => AtomPerson.parse(e))
@@ -62,10 +63,10 @@ class AtomItem {
           .findElements('source')
           .map((e) => AtomSource.parse(e))
           .firstOrNull,
-      published: element.findElements('published').firstOrNull?.text,
-      content: element.findElements('content').firstOrNull?.text,
-      summary: element.findElements('summary').firstOrNull?.text,
-      rights: element.findElements('rights').firstOrNull?.text,
+      published: element.findElements('published').firstOrNull?.value,
+      content: element.findElements('content').firstOrNull?.value,
+      summary: element.findElements('summary').firstOrNull?.value,
+      rights: element.findElements('rights').firstOrNull?.value,
       media: Media.parse(element),
     );
   }

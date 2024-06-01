@@ -47,10 +47,10 @@ class AtomFeed {
     }
 
     return AtomFeed(
-      id: feedElement.findElements('id').firstOrNull?.text,
-      title: feedElement.findElements('title').firstOrNull?.text,
+      id: feedElement.findElements('id').firstOrNull?.value,
+      title: feedElement.findElements('title').firstOrNull?.value,
       updated:
-          parseDateTime(feedElement.findElements('updated').firstOrNull?.text),
+          parseDateTime(feedElement.findElements('updated').firstOrNull?.value),
       items: feedElement
           .findElements('entry')
           .map((e) => AtomItem.parse(e))
@@ -75,10 +75,10 @@ class AtomFeed {
           .findElements('generator')
           .map((e) => AtomGenerator.parse(e))
           .firstOrNull,
-      icon: feedElement.findElements('icon').firstOrNull?.text,
-      logo: feedElement.findElements('logo').firstOrNull?.text,
-      rights: feedElement.findElements('rights').firstOrNull?.text,
-      subtitle: feedElement.findElements('subtitle').firstOrNull?.text,
+      icon: feedElement.findElements('icon').firstOrNull?.value,
+      logo: feedElement.findElements('logo').firstOrNull?.value,
+      rights: feedElement.findElements('rights').firstOrNull?.value,
+      subtitle: feedElement.findElements('subtitle').firstOrNull?.value,
     );
   }
 }

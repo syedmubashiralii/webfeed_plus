@@ -1,5 +1,9 @@
 # Changelogs
 
+## 1.1.0
+
+- Support for Flutter 3.22
+
 ## 1.0.1
 
 - Dependencies upgrade

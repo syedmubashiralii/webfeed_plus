@@ -15,7 +15,7 @@ void main() {
       RssFeed.parse(xmlString);
       fail('Should throw Argument Error');
     } on ArgumentError {
-      print('Argument Error');
+      fail('Argument Error');
     }
   });
   test('parse RSS.xml', () {

@@ -12,7 +12,7 @@ void main() {
       AtomFeed.parse(xmlString);
       fail('Should throw Argument Error');
     } on ArgumentError {
-      print('Argument Error');
+      fail('Argument Error');
     }
   });
 

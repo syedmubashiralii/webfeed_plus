@@ -10,9 +10,9 @@ class AtomPerson {
 
   factory AtomPerson.parse(XmlElement element) {
     return AtomPerson(
-      name: element.findElements('name').firstOrNull?.text,
-      uri: element.findElements('uri').firstOrNull?.text,
-      email: element.findElements('email').firstOrNull?.text,
+      name: element.findElements('name').firstOrNull?.value,
+      uri: element.findElements('uri').firstOrNull?.value,
+      email: element.findElements('email').firstOrNull?.value,
     );
   }
 }
