@@ -1,5 +1,9 @@
 # Changelogs
 
+## 1.1.1 - 19 Junw 2024
+
+- Fix DateTime parsing [PR#1](https://github.com/OmkarDabade/webfeed_plus/pull/1)
+
 ## 1.1.0
 
 - Support for Flutter 3.22
