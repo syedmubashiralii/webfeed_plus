@@ -1,6 +1,6 @@
 # Changelogs
 
-## 1.1.1 - 19 Junw 2024
+## 1.1.1 - 19 June 2024
 
 - Fix DateTime parsing [PR#1](https://github.com/OmkarDabade/webfeed_plus/pull/1)
 
