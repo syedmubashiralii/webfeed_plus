@@ -72,11 +72,11 @@ class RssFeed {
       throw ArgumentError('channel not found');
     }
     return RssFeed(
-      title: channelElement.findElements('title').firstOrNull?.value,
-      author: channelElement.findElements('author').firstOrNull?.value,
+      title: channelElement.findElements('title').firstOrNull?.innerText,
+      author: channelElement.findElements('author').firstOrNull?.innerText,
       description:
-          channelElement.findElements('description').firstOrNull?.value,
-      link: channelElement.findElements('link').firstOrNull?.value,
+          channelElement.findElements('description').firstOrNull?.innerText,
+      link: channelElement.findElements('link').firstOrNull?.innerText,
       items: (rdf ?? channelElement)
           .findElements('item')
           .map((e) => RssItem.parse(e))
@@ -104,21 +104,24 @@ class RssFeed {
               .findElements('skipHours')
               .firstOrNull
               ?.findAllElements('hour')
-              .map((e) => int.tryParse(e.value ?? '') ?? 0)
+              .map((e) => int.tryParse(e.innerText) ?? 0)
               .toList() ??
           [],
       lastBuildDate:
-          channelElement.findElements('lastBuildDate').firstOrNull?.value,
-      language: channelElement.findElements('language').firstOrNull?.value,
-      generator: channelElement.findElements('generator').firstOrNull?.value,
-      copyright: channelElement.findElements('copyright').firstOrNull?.value,
-      docs: channelElement.findElements('docs').firstOrNull?.value,
+          channelElement.findElements('lastBuildDate').firstOrNull?.innerText,
+      language: channelElement.findElements('language').firstOrNull?.innerText,
+      generator:
+          channelElement.findElements('generator').firstOrNull?.innerText,
+      copyright:
+          channelElement.findElements('copyright').firstOrNull?.innerText,
+      docs: channelElement.findElements('docs').firstOrNull?.innerText,
       managingEditor:
-          channelElement.findElements('managingEditor').firstOrNull?.value,
-      rating: channelElement.findElements('rating').firstOrNull?.value,
-      webMaster: channelElement.findElements('webMaster').firstOrNull?.value,
+          channelElement.findElements('managingEditor').firstOrNull?.innerText,
+      rating: channelElement.findElements('rating').firstOrNull?.innerText,
+      webMaster:
+          channelElement.findElements('webMaster').firstOrNull?.innerText,
       ttl: int.tryParse(
-          channelElement.findElements('ttl').firstOrNull?.value ?? '0'),
+          channelElement.findElements('ttl').firstOrNull?.innerText ?? '0'),
       dc: DublinCore.parse(channelElement),
       itunes: Itunes.parse(channelElement),
       syndication: Syndication.parse(channelElement),

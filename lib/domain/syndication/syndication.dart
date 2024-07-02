@@ -17,7 +17,7 @@ class Syndication {
 
   factory Syndication.parse(XmlElement element) {
     SyndicationUpdatePeriod updatePeriod;
-    switch (element.findElements('sy:updatePeriod').firstOrNull?.value) {
+    switch (element.findElements('sy:updatePeriod').firstOrNull?.innerText) {
       case 'hourly':
         updatePeriod = SyndicationUpdatePeriod.hourly;
         break;
@@ -40,9 +40,10 @@ class Syndication {
     return Syndication(
       updatePeriod: updatePeriod,
       updateFrequency: int.tryParse(
-          element.findElements('sy:updateFrequency').firstOrNull?.value ?? '1'),
+          element.findElements('sy:updateFrequency').firstOrNull?.innerText ??
+              '1'),
       updateBase: parseDateTime(
-          element.findElements('sy:updateBase').firstOrNull?.value),
+          element.findElements('sy:updateBase').firstOrNull?.innerText),
     );
   }
 }
