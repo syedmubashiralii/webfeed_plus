@@ -16,10 +16,11 @@ class Scene {
 
   factory Scene.parse(XmlElement element) {
     return Scene(
-      title: element.findElements('sceneTitle').firstOrNull?.value,
-      description: element.findElements('sceneDescription').firstOrNull?.value,
-      startTime: element.findElements('sceneStartTime').firstOrNull?.value,
-      endTime: element.findElements('sceneEndTime').firstOrNull?.value,
+      title: element.findElements('sceneTitle').firstOrNull?.innerText,
+      description:
+          element.findElements('sceneDescription').firstOrNull?.innerText,
+      startTime: element.findElements('sceneStartTime').firstOrNull?.innerText,
+      endTime: element.findElements('sceneEndTime').firstOrNull?.innerText,
     );
   }
 }

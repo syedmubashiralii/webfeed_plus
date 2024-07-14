@@ -107,7 +107,7 @@ class Media {
           .findElements('media:description')
           .map((e) => Description.parse(e))
           .firstOrNull,
-      keywords: element.findElements('media:keywords').firstOrNull?.value,
+      keywords: element.findElements('media:keywords').firstOrNull?.innerText,
       thumbnails: element
           .findElements('media:thumbnail')
           .map((e) => Thumbnail.parse(e))

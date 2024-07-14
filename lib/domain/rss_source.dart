@@ -8,7 +8,7 @@ class RssSource {
 
   factory RssSource.parse(XmlElement element) {
     var url = element.getAttribute('url');
-    var value = element.value;
+    var value = element.innerText;
 
     return RssSource(url, value);
   }

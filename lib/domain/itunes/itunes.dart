@@ -48,17 +48,17 @@ class Itunes {
 
   factory Itunes.parse(XmlElement element) {
     final episodeStr =
-        element.findElements('itunes:episode').firstOrNull?.value ?? '';
+        element.findElements('itunes:episode').firstOrNull?.innerText ?? '';
     final seasonStr =
-        element.findElements('itunes:season').firstOrNull?.value ?? '';
+        element.findElements('itunes:season').firstOrNull?.innerText ?? '';
     final durationStr =
-        element.findElements('itunes:duration').firstOrNull?.value ?? '';
+        element.findElements('itunes:duration').firstOrNull?.innerText ?? '';
     return Itunes(
-      author: element.findElements('itunes:author').firstOrNull?.value,
-      summary: element.findElements('itunes:summary').firstOrNull?.value,
+      author: element.findElements('itunes:author').firstOrNull?.innerText,
+      summary: element.findElements('itunes:summary').firstOrNull?.innerText,
       explicit: parseBoolLiteral(element, 'itunes:explicit'),
-      title: element.findElements('itunes:title').firstOrNull?.value,
-      subtitle: element.findElements('itunes:subtitle').firstOrNull?.value,
+      title: element.findElements('itunes:title').firstOrNull?.innerText,
+      subtitle: element.findElements('itunes:subtitle').firstOrNull?.innerText,
       owner: element
           .findElements('itunes:owner')
           .map((e) => ItunesOwner.parse(e))
@@ -66,8 +66,8 @@ class Itunes {
       keywords: element
               .findElements('itunes:keywords')
               .firstOrNull
-              ?.value
-              ?.split(',')
+              ?.innerText
+              .split(',')
               .map((keyword) => keyword.trim())
               .toList() ??
           [],
@@ -84,7 +84,7 @@ class Itunes {
           .map((e) => newItunesType(e))
           .firstOrNull,
       newFeedUrl:
-          element.findElements('itunes:new-feed-url').firstOrNull?.value,
+          element.findElements('itunes:new-feed-url').firstOrNull?.innerText,
       block: parseBoolLiteral(element, 'itunes:block'),
       complete: parseBoolLiteral(element, 'itunes:complete'),
       episode: episodeStr.isNotEmpty ? int.tryParse(episodeStr) : null,
