@@ -1,5 +1,10 @@
 # Changelogs
 
+## 1.1.2 - 14 July 2024
+
+- text param replaced by innerText [PR#2](https://github.com/OmkarDabade/webfeed_plus/pull/2)
+- upgrade dependencies
+
 ## 1.1.1 - 19 June 2024
 
 - Fix DateTime parsing [PR#1](https://github.com/OmkarDabade/webfeed_plus/pull/1)
